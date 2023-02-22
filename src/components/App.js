@@ -24,7 +24,7 @@ function App() {
         setIsEditAvatarPopupOpen(true);
     }
 
-    const [selectedCard, setSelectedCard] = React.useState(false);
+    const [selectedCard, setSelectedCard] = React.useState(null);
     function handleCardClick(card) {
         setSelectedCard(card);
     }
@@ -33,7 +33,7 @@ function App() {
         setIsEditProfilePopupOpen(false);
         setIsAddPlacePopupOpen(false);
         setIsEditAvatarPopupOpen(false);
-        setSelectedCard(false);
+        setSelectedCard(null);
     }
 
   return (
