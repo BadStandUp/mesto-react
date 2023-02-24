@@ -1,6 +1,6 @@
 import {apiSettings} from "./constants.js";
 
-class Api {
+export default class Api {
     constructor(options) {
         this._url = options.baseUrl;
         this._headers = options.headers;
@@ -37,8 +37,8 @@ class Api {
 
     addCard(data) {
         return this._fetch('/cards', 'POST', JSON.stringify({
-            name: data.placeInput,
-            link: data.urlInput
+            name: data.name,
+            link: data.link
         }));
     }
 
@@ -58,6 +58,14 @@ class Api {
 
     deleteLike(id) {
         return this._fetch('/cards/' + id + '/likes', 'DELETE');
+    }
+
+    changeLikeCardStatus(id, isLiked) {
+        if (!isLiked) {
+            return this.setLike(id)
+        } else {
+            return this.deleteLike(id)
+        }
     }
 }
 
