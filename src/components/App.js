@@ -20,7 +20,7 @@ function App() {
     const [isConfirmationPopupOpen, setIsConfirmationPopupOpen] = useState(false)
     const [selectedCard, setSelectedCard] = useState(null);
     const [isLoading, setIsLoading] = useState(false);
-    const [deletedCard, setDeletedCard] = useState();
+    const [deletedCard, setDeletedCard] = useState(null);
 
     useEffect(() => {
         api.getInitialCards()
@@ -79,7 +79,6 @@ function App() {
             }))
             .catch((err) => console.log(err))
     }
-
 
     function handleCardDelete(card) {
         setIsLoading(true)
